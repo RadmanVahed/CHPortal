@@ -1,0 +1,32 @@
+@import './base.css';
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@font-face {
+  font-family: 'IRANSansFaNum';
+  src: url('./fonts/iransanefa/IRANSansWebFaNum-Light.eot');
+  src: url('./fonts/iransanefa/IRANSansWebFaNum-Light.eot?#iefix') format('embedded-opentype'),
+  url('./fonts/iransanefa/IRANSansWebFaNum-Light.woff2') format('woff2'),
+  url('./fonts/iransanefa/IRANSansWebFaNum-Light.woff') format('woff'),
+  url('./fonts/iransanefa/IRANSansWebFaNum-Light.ttf') format('truetype'),
+  url('./fonts/iransanefa/IRANSansXFaNum-Black.ttf') format('truetype'),
+  url('./fonts/iransanefa/IRANSansXFaNum-Bold.ttf') format('truetype'),
+  url('./fonts/iransanefa/IRANSansXFaNum-Bold.woff2') format('woff2'),
+  url('./fonts/iransanefa/IRANSansXFaNum-Bold.woff') format('woff'),
+  url('./fonts/iransanefa/IRANSansXFaNum-DemiBold.ttf') format('truetype'),
+  url('./fonts/iransanefa/IRANSansXFaNum-DemiBold.woff') format('woff'),
+  url('./fonts/iransanefa/IRANSansXFaNum-DemiBold.woff2') format('woff2'),
+  url('./fonts/iransanefa/IRANSansXFaNum-Medium.ttf') format('truetype'),
+  url('./fonts/iransanefa/IRANSansXFaNum-Medium.woff') format('woff'),
+  url('./fonts/iransanefa/IRANSansXFaNum-Medium.woff2') format('woff2'),
+  url('./fonts/iransanefa/IRANSansXFaNum-Regular.ttf') format('truetype'),
+  url('./fonts/iransanefa/IRANSansXFaNum-Regular.woff') format('woff'),
+  url('./fonts/iransanefa/IRANSansXFaNum-Regular.woff2') format('woff2'),
+  url('./fonts/iransanefa/IRANSansWebFaNum-Light.svg#IRANSansWebFaNum-Light') format('svg');
+  /*font-weight: 500;*/
+  /*font-style: normal;*/
+}
+#app {
+  font-family: IRANSansFaNum;
+  margin: 0;
+}
