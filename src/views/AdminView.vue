@@ -127,6 +127,7 @@ import UButton from "@nuxt/ui/runtime/components/Button.vue";
 import UBadge from "@nuxt/ui/runtime/components/Badge.vue";
 import UDropdownMenu from "@nuxt/ui/runtime/components/DropdownMenu.vue";
 import VueApexCharts from "vue3-apexcharts";
+import EDropdown from '@/components/EDropdown.vue'
 import type { ApexOptions } from "apexcharts";
 const active = ref("2");
 const chartOptions = ref<ApexOptions>({
@@ -330,11 +331,12 @@ const columns: TableColumn<Payment>[] = [
     accessorKey: "status",
     header: "وضعیت درخواست",
     cell: ({ row }) => {
-      let color = {
+      const status = row.getValue("status") as string;
+      const colorMap: Record<string, "warning" | "success"> = {
         "درخواست جدید": "warning",
         "برسی شده": "success",
-      }[row.getValue("status") as string];
-      //@ts-ignore
+      };
+      const color = colorMap[status] || "neutral";
       return h(UBadge, { class: "capitalize", variant: "subtle", color }, () =>
         row.getValue("status")
       );
@@ -349,12 +351,8 @@ const columns: TableColumn<Payment>[] = [
         "div",
         { class: "text-right" },
         h(
-          //@ts-ignore
-          UDropdownMenu,
+          EDropdown,
           {
-            content: {
-              align: "end",
-            },
             items: getRowItems(row),
           },
           () =>
