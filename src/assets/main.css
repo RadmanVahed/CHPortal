@@ -1,7 +1,11 @@
 @import './base.css';
 @import "tailwindcss";
 @import "@nuxt/ui";
-
+@layer utilities {
+  .rtl {
+    direction: rtl;
+  }
+}
 @font-face {
   font-family: 'IRANSansFaNum';
   src: url('./fonts/iransanefa/IRANSansWebFaNum-Light.eot');
@@ -29,4 +33,9 @@
 #app {
   font-family: IRANSansFaNum;
   margin: 0;
+  background-color: #111827 !important;
+  height: 100vh;
+}
+.dark{
+  background-color: #111827 !important;
 }
