@@ -299,8 +299,8 @@ const items = [
   },
 ];
 const toast = useToast();
-const open = ref(false);
-const modalId = ref(1);
+ const open = ref(false);
+ const modalId = ref(1);
 const modalData = ref<Payment>();
 type Payment = {
   id: string;
@@ -411,10 +411,4 @@ function submit(status: number) {
   }
 }
 </script>
-<style scoped>
-.chart-container {
-  width: 100%;
-  max-width: 600px;
-  margin: auto;
-}
-</style>
+
