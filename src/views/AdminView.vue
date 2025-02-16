@@ -7,7 +7,9 @@
   </div>
   <div class="min-md:flex m-4 justify-between min-md:mx-8">
     <div>
-      <div class="text-white text-end text-xl mt-8">تعداد برنامه های حوزه موسیقی</div>
+      <div class="text-white text-end text-xl mt-8">
+        تعداد برنامه های حوزه موسیقی
+      </div>
       <apexchart type="bar" :options="chartOptions3" :series="series3" />
     </div>
     <div>
@@ -15,7 +17,9 @@
       <apexchart type="bar" :options="chartOptions2" :series="series2" />
     </div>
     <div>
-      <div class="text-white text-end text-xl mt-8">تعداد برنامه های تشکل ها</div>
+      <div class="text-white text-end text-xl mt-8">
+        تعداد برنامه های تشکل ها
+      </div>
       <apexchart type="bar" :options="chartOptions3" :series="series3" />
     </div>
     <div>
@@ -125,9 +129,7 @@ import type { TableColumn } from "@nuxt/ui";
 import type { Row } from "@tanstack/vue-table";
 import UButton from "@nuxt/ui/runtime/components/Button.vue";
 import UBadge from "@nuxt/ui/runtime/components/Badge.vue";
-import UDropdownMenu from "@nuxt/ui/runtime/components/DropdownMenu.vue";
-import VueApexCharts from "vue3-apexcharts";
-import EDropdown from '@/components/EDropdown.vue'
+import EDropdown from "@/components/EDropdown.vue";
 import type { ApexOptions } from "apexcharts";
 const active = ref("2");
 const chartOptions = ref<ApexOptions>({
@@ -233,7 +235,7 @@ const series2 = ref([
   },
 ]);
 const chartOptions3 = ref<ApexOptions>({
-    chart: {
+  chart: {
     type: "bar",
     toolbar: { show: false },
     selection: { enabled: false },
@@ -244,7 +246,7 @@ const chartOptions3 = ref<ApexOptions>({
     show: false,
   },
   xaxis: {
-   categories: ["دانشگاه تهران", "دانشگاه اصفهان"],
+    categories: ["دانشگاه تهران", "دانشگاه اصفهان"],
     labels: {
       style: {
         colors: ["#fff", "#fff", "#fff"],
