@@ -1,8 +1,30 @@
 <template>
-  <USeparator class="my-8" label="داشبورد" />
-  <UCard class="mx-4">
-    <UTable dir="rtl" :data="data" :columns="columns" class="flex-1" />
-  </UCard>
+  <USeparator class="my-8" label="داشبورد مدیریت" />
+  <div class="flex justify-center">
+    <UCard class="mx-4 w-full min-md:w-3/5">
+      <UTable dir="rtl" :data="data" :columns="columns" class="flex-1" />
+    </UCard>
+  </div>
+  <div class="min-md:flex m-4 justify-between min-md:mx-8">
+    <div>
+      <div class="text-white text-end text-xl mt-8">تعداد برنامه های حوزه موسیقی</div>
+      <apexchart type="bar" :options="chartOptions3" :series="series3" />
+    </div>
+    <div>
+      <div class="text-white text-end text-xl mt-8">نمودار درخواست ها</div>
+      <apexchart type="bar" :options="chartOptions2" :series="series2" />
+    </div>
+    <div>
+      <div class="text-white text-end text-xl mt-8">تعداد برنامه های تشکل ها</div>
+      <apexchart type="bar" :options="chartOptions3" :series="series3" />
+    </div>
+    <div>
+      <div class="text-white text-end text-xl mt-8">
+        نمودار مشارکت دانشجویان
+      </div>
+      <apexchart type="area" :options="chartOptions" :series="series" />
+    </div>
+  </div>
   <div dir="rtl">
     <UModal
       class="rtl"
@@ -65,7 +87,27 @@
                   <div>
                     <div class="text-end mb-2">تاریخ : ۱۴۰۳/۱۱/۰۲</div>
                     <div class="flex justify-end">
-                        <UBadge variant="subtle" color="success">تایید شده</UBadge>
+                      <UBadge variant="subtle" color="success"
+                        >تایید شده</UBadge
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div v-if="item.id == 3">
+                <div
+                  class="flex justify-between p-2 text-white border rounded-lg border-gray-700"
+                >
+                  <div class="grid gap-2">
+                    <div>بازی مافیا</div>
+                    <div class="text-sm text-gray-400">
+                      تاریخ درخواست : ۱۴۰۳/۶/۰۱
+                    </div>
+                  </div>
+                  <div>
+                    <div class="text-end mb-2">تاریخ : ۱۴۰۳/۷/۱۰</div>
+                    <div class="flex justify-end">
+                      <UBadge variant="subtle" color="error">رد شده</UBadge>
                     </div>
                   </div>
                 </div>
@@ -78,7 +120,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { h, onMounted, ref, resolveComponent } from "vue";
+import { h, ref } from "vue";
 import type { TableColumn } from "@nuxt/ui";
 import type { Row } from "@tanstack/vue-table";
 import UButton from "@nuxt/ui/runtime/components/Button.vue";
@@ -132,6 +174,12 @@ const chartOptions = ref<ApexOptions>({
     strokeWidth: 3,
   },
 });
+const series = ref([
+  {
+    name: "Sales",
+    data: [30, 40, 35, 50, 49, 60],
+  },
+]);
 const chartOptions2 = ref<ApexOptions>({
   chart: {
     type: "bar",
@@ -177,6 +225,63 @@ const chartOptions2 = ref<ApexOptions>({
     },
   },
 });
+const series2 = ref([
+  {
+    name: "تعداد",
+    data: [10, 1, 4],
+  },
+]);
+const chartOptions3 = ref<ApexOptions>({
+    chart: {
+    type: "bar",
+    toolbar: { show: false },
+    selection: { enabled: false },
+    zoom: { enabled: false },
+    foreColor: "#ccc",
+  },
+  legend: {
+    show: false,
+  },
+  xaxis: {
+   categories: ["دانشگاه تهران", "دانشگاه اصفهان"],
+    labels: {
+      style: {
+        colors: ["#fff", "#fff", "#fff"],
+        fontFamily: "IRANSansFaNum",
+      },
+    },
+  },
+  tooltip: {
+    enabled: false,
+  },
+  colors: ["#00BAEC"],
+  stroke: {
+    width: 3,
+  },
+  grid: {
+    borderColor: "#555",
+    yaxis: {
+      lines: {
+        show: false,
+      },
+    },
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  plotOptions: {
+    bar: {
+      columnWidth: "50%",
+      distributed: true,
+    },
+  },
+});
+const series3 = ref([
+  {
+    name: "تعداد",
+    data: [4, 7],
+  },
+]);
 const items = [
   { label: "رد شده", icon: "i-iconoir-xmark-circle", id: 3 },
   {
@@ -190,20 +295,6 @@ const items = [
     id: 1,
   },
 ];
-const series2 = ref([
-  {
-    name: "تعداد",
-    data: [10, 1, 4],
-  },
-]);
-
-const series = ref([
-  {
-    name: "Sales",
-    data: [30, 40, 35, 50, 49, 60],
-  },
-]);
-
 const toast = useToast();
 const open = ref(false);
 const modalId = ref(1);
