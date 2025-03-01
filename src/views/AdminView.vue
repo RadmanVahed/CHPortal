@@ -1,5 +1,151 @@
 <template>
-  <USeparator class="my-8" label="داشبورد مدیریت" />
+  <div class="mt-4 ml-4 flex gap-2">
+    <UDrawer direction="top">
+      <UChip size="2xl">
+        <UButton
+          color="neutral"
+          variant="subtle"
+          trailing-icon="i-lucide-bell"
+        />
+      </UChip>
+
+      <template #content>
+        <div class="mx-4">
+          <div class="text-white text-end text-xl mt-8 m-4">اعلانات</div>
+          <div
+            class="flex justify-between p-2 rtl text-white border rounded-lg border-gray-700"
+          >
+            <div class="grid gap-2">
+              <div>جشن روز دانشجو</div>
+              <div class="flex gap-1 items-center">
+                <div class="text-sm text-gray-400">
+                  تاریخ درخواست : ۱۴۰۳/۱۱/۲۰
+                </div>
+                <UBadge
+                  color="warning"
+                  variant="soft"
+                  icon="i-lucide-clock"
+                  size="md"
+                  label="۳ روز"
+                ></UBadge>
+              </div>
+            </div>
+            <div class="grid gap-2">
+              <div class="text-end">تاریخ : ۱۴۰۳/۱۲/۲۰</div>
+              <div class="flex gap-2">
+                <UButton @click="submit(1)" color="success">تایید</UButton>
+                <!--<UButton @click="submit(2)" color="error">رد درخواست</UButton>-->
+                <UDropdownMenu
+                  class="rtl"
+                  dir="rtl"
+                  :items="items2"
+                  :content="{
+                    align: 'start',
+                    side: 'bottom',
+                    sideOffset: 8,
+                  }"
+                  :ui="{
+                    content: 'w-48',
+                  }"
+                >
+                  <UButton
+                    label="رد درخواست"
+                    icon="i-lucide-chevron-down"
+                    color="error"
+                  />
+                </UDropdownMenu>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+    </UDrawer>
+    <UDrawer direction="top">
+      <UButton
+        color="neutral"
+        label="راهنما"
+        variant="subtle"
+        trailing-icon="i-lucide-info"
+      />
+
+      <template #content>
+        <div class="mx-4">
+          <div class="text-white text-end text-xl mt-8 m-4">راهنما</div>
+          <div
+            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+          >
+            <div class="grid items-center">آیین نامه انجمن علمی</div>
+            <div>
+              <UButton
+                color="neutral"
+                variant="subtle"
+                trailing-icon="i-lucide-link"
+              />
+            </div>
+          </div>
+          <div
+            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+          >
+            <div class="grid items-center">اساس نامه تشکل های دانشجویی</div>
+            <div>
+              <UButton
+                color="neutral"
+                variant="subtle"
+                trailing-icon="i-lucide-link"
+              />
+            </div>
+          </div>
+          <div
+            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+          >
+            <div class="grid items-center">اساسنامه کانون های جهادی</div>
+            <div>
+              <UButton
+                color="neutral"
+                variant="subtle"
+                trailing-icon="i-lucide-link"
+              />
+            </div>
+          </div>
+          <div class="text-white text-end text-xl mt-8 m-4">
+            سوالات پر تکرار
+          </div>
+          <div
+            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+          >
+            <div class="grid items-center">
+              چگونه می توانم مجوز یک نشریه را بگیرم؟
+            </div>
+            <div>
+              <UButton
+                color="neutral"
+                variant="subtle"
+                trailing-icon="i-lucide-link"
+              />
+            </div>
+          </div>
+        </div>
+      </template>
+    </UDrawer>
+  </div>
+  <USeparator class="my-8" label="داشبورد مدیر فرهنگی" />
+  <div class="rtl m-4">
+    <UCard>
+      <template #default>
+        <div class="flex gap-4 justify-between items-center text-white">
+          <div class="flex gap-4 items-center">
+            <UAvatar src="https://github.com/benjamincanac.png" size="xl" />
+            <div>رادمان واحد</div>
+          </div>
+          <div class="flex gap-1">
+            <div>مدیر فرهنگی</div>
+            <div>دانشگاه اصفهان</div>
+          </div>
+        </div>
+      </template>
+    </UCard>
+  </div>
+  <div class="text-white text-end text-xl mt-8 m-4">لیست انجمن ها</div>
   <div class="flex justify-center">
     <UCard class="mx-4 w-full min-md:w-3/5">
       <UTable dir="rtl" :data="data" :columns="columns" class="flex-1" />
@@ -45,8 +191,20 @@
     >
       <template #body>
         <div v-if="modalId === 1">
-          <div class="my-2">نام دانشگاه: {{ modalData?.name }}</div>
+          <div class="mb-2">نام انجمن: {{ modalData?.name }}</div>
           <div>نام دبیر انجمن: {{ modalData?.leader }}</div>
+          <div dir="ltr" class="my-12">
+            <div class="text-white text-xl mt-8 text-end mb-4">گالری انجمن</div>
+            <UCarousel
+              v-slot="{ item }"
+              dots
+              :align="'center'"
+              :items="pics"
+              class="w-full max-w-xs mx-auto"
+            >
+              <img :src="item" width="320" height="320" class="rounded-lg" />
+            </UCarousel>
+          </div>
           <div class="text-white text-xl mt-8">نمودار مشارکت دانشجویان</div>
           <apexchart type="area" :options="chartOptions" :series="series" />
           <div class="text-white text-xl mt-8">نمودار درخواست ها</div>
@@ -61,8 +219,17 @@
                 >
                   <div class="grid gap-2">
                     <div>جشن روز دانشجو</div>
-                    <div class="text-sm text-gray-400">
-                      تاریخ درخواست : ۱۴۰۳/۱۱/۲۰
+                    <div class="flex gap-1 items-center">
+                      <div class="text-sm text-gray-400">
+                        تاریخ درخواست : ۱۴۰۳/۱۱/۲۰
+                      </div>
+                      <UBadge
+                        color="warning"
+                        variant="soft"
+                        icon="i-lucide-clock"
+                        size="md"
+                        label="۳ روز"
+                      ></UBadge>
                     </div>
                   </div>
                   <div class="grid gap-2">
@@ -71,9 +238,25 @@
                       <UButton @click="submit(1)" color="success"
                         >تایید</UButton
                       >
-                      <UButton @click="submit(2)" color="error"
-                        >رد درخواست</UButton
+                      <UDropdownMenu
+                        class="rtl"
+                        dir="rtl"
+                        :items="items2"
+                        :content="{
+                          align: 'start',
+                          side: 'bottom',
+                          sideOffset: 8,
+                        }"
+                        :ui="{
+                          content: 'w-48',
+                        }"
                       >
+                        <UButton
+                          label="رد درخواست"
+                          icon="i-lucide-chevron-down"
+                          color="error"
+                        />
+                      </UDropdownMenu>
                     </div>
                   </div>
                 </div>
@@ -111,7 +294,9 @@
                   <div>
                     <div class="text-end mb-2">تاریخ : ۱۴۰۳/۷/۱۰</div>
                     <div class="flex justify-end">
-                      <UBadge variant="subtle" color="error">رد شده</UBadge>
+                      <UBadge variant="subtle" color="error"
+                        >رد شده : محتوای نا مناسب</UBadge
+                      >
                     </div>
                   </div>
                 </div>
@@ -132,6 +317,40 @@ import UBadge from "@nuxt/ui/runtime/components/Badge.vue";
 import EDropdown from "@/components/EDropdown.vue";
 import type { ApexOptions } from "apexcharts";
 const active = ref("2");
+const pics = [
+  "https://picsum.photos/640/640?random=1",
+  "https://picsum.photos/640/640?random=2",
+  "https://picsum.photos/640/640?random=3",
+  "https://picsum.photos/640/640?random=4",
+  "https://picsum.photos/640/640?random=5",
+  "https://picsum.photos/640/640?random=6",
+];
+const items2 = ref([
+  {
+    label: "محتوای نا مناسب",
+    onSelect(e: Event) {
+      submit(2);
+    },
+  },
+  {
+    label: "عدم تطابق با قانون",
+    onSelect(e: Event) {
+      submit(2);
+    },
+  },
+  {
+    label: "رد استعلام امنیتی",
+    onSelect(e: Event) {
+      submit(2);
+    },
+  },
+  {
+    label: "سایر",
+    onSelect(e: Event) {
+      submit(2);
+    },
+  },
+]);
 const chartOptions = ref<ApexOptions>({
   chart: {
     type: "area",
@@ -246,7 +465,7 @@ const chartOptions3 = ref<ApexOptions>({
     show: false,
   },
   xaxis: {
-    categories: ["دانشگاه تهران", "دانشگاه اصفهان"],
+    categories: ["انجمن ریاضی", "انجمن کامپیوتر"],
     labels: {
       style: {
         colors: ["#fff", "#fff", "#fff"],
@@ -299,8 +518,8 @@ const items = [
   },
 ];
 const toast = useToast();
- const open = ref(false);
- const modalId = ref(1);
+const open = ref(false);
+const modalId = ref(1);
 const modalData = ref<Payment>();
 type Payment = {
   id: string;
@@ -312,13 +531,13 @@ type Payment = {
 const data = ref<Payment[]>([
   {
     id: "1",
-    name: "دانشگاه تهران",
+    name: "انجمن ریاضی",
     leader: "محمدرضا محمدی",
     status: "درخواست جدید",
   },
   {
     id: "2",
-    name: "دانشگاه اصفهان",
+    name: "انجمن کامپیوتر",
     leader: "علی احمدی",
     status: "برسی شده",
   },
@@ -327,7 +546,7 @@ const data = ref<Payment[]>([
 const columns: TableColumn<Payment>[] = [
   {
     accessorKey: "name",
-    header: "نام دانشگاه",
+    header: "نام انجمن",
   },
   {
     accessorKey: "status",
@@ -411,4 +630,3 @@ function submit(status: number) {
   }
 }
 </script>
-

@@ -10,10 +10,9 @@ const isProduction = process.env.NODE_ENV === 'production'
 export default defineConfig({
   plugins: [
     vue(),
-    !isProduction && require('vite-plugin-vue-devtools').default(),
     vueDevTools(),
     ui(),
-  ].filter(Boolean),
+  ],
   base: '/CHPortal/',
   build: {
     assetsDir: "assets",

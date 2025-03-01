@@ -1,11 +1,96 @@
 <template>
+  <div class="mt-4 ml-4 flex gap-2">
+    <UDrawer direction="top">
+      <UChip size="2xl">
+        <UButton color="neutral" variant="subtle" trailing-icon="i-lucide-bell" />
+      </UChip>
+      
+
+      <template #content>
+        <div class="mx-4">
+          <div class="text-white text-end text-xl mt-8 m-4">اعلانات</div>
+          <div
+            class="flex justify-between p-2 rtl text-white border rounded-lg border-gray-700"
+          >
+            <div class="grid gap-2">
+              <div>جشن روز دانشجو</div>
+              <div class="flex gap-1 items-center">
+                <div class="text-sm text-gray-400">
+                تاریخ درخواست : ۱۴۰۳/۱۱/۲۰
+              </div>
+              </div>
+            </div>
+            <div class="grid gap-2">
+              <div class="text-end">تاریخ : ۱۴۰۳/۱۲/۲۰</div>
+              <div class="flex gap-2">
+                <UBadge variant="soft" label="درخواست شما تایید شد"></UBadge>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+    </UDrawer>
+    <UDrawer direction="top">
+      <UButton color="neutral" label="راهنما" variant="subtle" trailing-icon="i-lucide-info" />
+
+      <template #content>
+        <div class="mx-4">
+          <div class="text-white text-end text-xl mt-8 m-4">راهنما</div>
+          <div
+            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+          >
+            <div class="grid items-center">آیین نامه انجمن علمی</div>
+            <div>
+              <UButton color="neutral" variant="subtle" trailing-icon="i-lucide-link" />
+            </div>
+          </div>
+          <div
+            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+          >
+            <div class="grid items-center">اساس نامه تشکل های دانشجویی</div>
+            <div>
+              <UButton color="neutral" variant="subtle" trailing-icon="i-lucide-link" />
+            </div>
+          </div>
+          <div
+            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+          >
+            <div class="grid items-center">اساسنامه کانون های جهادی</div>
+            <div>
+              <UButton color="neutral" variant="subtle" trailing-icon="i-lucide-link" />
+            </div>
+          </div>
+          <div class="text-white text-end text-xl mt-8 m-4">سوالات پر تکرار</div>
+          <div
+            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+          >
+            <div class="grid items-center">چگونه می توانم مجوز یک نشریه را بگیرم؟</div>
+            <div>
+              <UButton color="neutral" variant="subtle" trailing-icon="i-lucide-link" />
+            </div>
+          </div>
+        </div>
+      </template>
+    </UDrawer>
+  </div>
   <USeparator class="my-8" label="داشبورد انجمن" />
   <div class="rtl m-4">
     <UCard>
       <template #default>
-        <div class="flex gap-4 text-white">
-          <div>نام دانشگاه : دانشگاه اصفهان</div>
-          <div>نام دبیر انجمن : علی احمدی</div>
+        <div
+          class="min-md:flex gap-4 grid justify-between items-center text-white"
+        >
+          <div class="flex gap-4 items-center">
+            <UAvatar src="https://github.com/benjamincanac.png" size="xl" />
+            <div>علی احمدی</div>
+          </div>
+
+          <div>تاریخ تأسیس : ۱۳۸۴/۳/۱۵</div>
+          <div>آخرین انتخابات : ۱۴۰۳/۱۰/۲۵</div>
+          <div class="flex gap-1">
+            <div>دبیر انجمن کامپیوتر</div>
+            <div>دانشگاه اصفهان</div>
+          </div>
         </div>
       </template>
     </UCard>
@@ -47,7 +132,7 @@
             <div class="text-sm text-gray-400">تاریخ درخواست : ۱۴۰۳/۱۰/۱۶</div>
           </div>
           <div>
-            <div class="text-end mb-2">تاریخ : ۱۴۰۳/۱۱/۰۲</div>
+            <div class="text-end mb-2">تاریخ : ۱۴۰۳/۱۱/۰۸</div>
             <div class="flex justify-end">
               <UBadge variant="subtle" color="success">تایید شده</UBadge>
             </div>
@@ -63,7 +148,9 @@
           <div>
             <div class="text-end mb-2">تاریخ : ۱۴۰۳/۷/۱۰</div>
             <div class="flex justify-end">
-              <UBadge variant="subtle" color="error">رد شده</UBadge>
+              <UBadge variant="subtle" color="error"
+                >رد شده : محتوای نا مناسب</UBadge
+              >
             </div>
           </div>
         </div>
@@ -72,7 +159,10 @@
     <UCard>
       <template #header>
         <div class="flex justify-between items-center text-white text-lg">
-          <div>اعضای انجمن</div>
+          <div class="flex gap-1">
+            <div>اعضای انجمن</div>
+            <UBadge color="neutral" variant="soft" label="۸۰ نفر"></UBadge>
+          </div>
           <UButton @click="openModal(2)">کاربر جدید</UButton>
         </div>
       </template>
@@ -87,6 +177,118 @@
           <div class="grid gap-2">
             <div class="text-end">کارشناس فنی</div>
             <UButton color="error">حذف کاربر</UButton>
+          </div>
+        </div>
+        <div
+          class="flex justify-between p-2 mt-2 text-white border rounded-lg border-gray-700"
+        >
+          <div class="grid gap-2">
+            <div>علی اکبری</div>
+            <div class="text-sm text-gray-400">تاریخ درخواست : ۱۴۰۳/۱۱/۲۵</div>
+          </div>
+          <div class="grid gap-2">
+            <div class="text-end">مهندسی کامپیوتر</div>
+            <UButton >تایید درخواست</UButton>
+          </div>
+        </div>
+      </template>
+    </UCard>
+    <UCard>
+      <template #header>
+        <div class="flex justify-between items-center text-white text-lg">
+          <div>گالری انجمن</div>
+          <UButton>فایل جدید</UButton>
+        </div>
+      </template>
+      <template #default>
+        <div class="mb-12" dir="ltr">
+          <UCarousel
+            v-slot="{ item }"
+            dots
+            :align="'center'"
+            :items="pics"
+            class="w-full max-w-xs mx-auto"
+          >
+            <img :src="item" width="320" height="320" class="rounded-lg" />
+          </UCarousel>
+        </div>
+      </template>
+    </UCard>
+    <UCard>
+      <template #header>
+        <div class="flex justify-between items-center text-white text-lg">
+          <div>تقویم رویداد ها</div>
+          <UBadge variant="soft" label="۱۵ برنامه"></UBadge>
+        </div>
+      </template>
+      <template #default>
+        <div>
+          <div class="flex justify-between">
+            <div class="flex gap-1">
+              <UInput :value="'1403'" />
+
+              <UInput :value="'بهمن'" />
+            </div>
+            <div class="flex gap-2 items-end">
+              <UButton icon="i-lucide-chevron-right"></UButton>
+              <UButton icon="i-lucide-chevron-left"></UButton>
+            </div>
+          </div>
+          <div
+            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+          >
+            <div class="grid items-center">شنبه : ۱۱/۷</div>
+            <div>
+              <UBadge variant="soft" size="lg" color="neutral" label="بدون برنامه"></UBadge>
+            </div>
+          </div>
+          <div
+            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+          >
+            <div class="grid items-center">یک شنبه : ۱۱/۸</div>
+            <div>
+              <UBadge  size="lg" label="شعر خوانی"></UBadge>
+            </div>
+          </div>
+          <div
+            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+          >
+            <div class="grid items-center">دو شنبه : ۱۱/۹</div>
+            <div>
+              <UBadge variant="soft" size="lg" color="neutral" label="بدون برنامه"></UBadge>
+            </div>
+          </div>
+          <div
+            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+          >
+            <div class="grid items-center">سه شنبه : ۱۱/۱۰</div>
+            <div>
+              <UBadge variant="soft" size="lg" color="neutral" label="بدون برنامه"></UBadge>
+            </div>
+          </div>
+          <div
+            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+          >
+            <div class="grid items-center">چهار شنبه : ۱۱/۱۱</div>
+            <div>
+              <UBadge variant="soft" size="lg" color="neutral" label="بدون برنامه"></UBadge>
+            </div>
+          </div>
+          <div
+            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+          >
+            <div class="grid items-center">پنج شنبه : ۱۱/۱۲</div>
+            <div>
+              <UBadge variant="soft" size="lg" color="neutral" label="بدون برنامه"></UBadge>
+            </div>
+          </div>
+          <div
+            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+          >
+            <div class="grid items-center">جمعه : ۱۱/۱۳</div>
+            <div>
+              <UBadge variant="soft" size="lg" color="neutral" label="بدون برنامه"></UBadge>
+            </div>
           </div>
         </div>
       </template>
@@ -170,20 +372,19 @@
             <UInput class="w-full" />
           </UFormField>
           <UFormField class="w-full my-2" label="نقش" name="role">
-              <USelectMenu
-                :items="items3"
-                class="w-full"
-              />
-            </UFormField>
-          <UFormField label="رمز عبور" >
+            <USelectMenu :items="items3" class="w-full" />
+          </UFormField>
+          <UFormField label="رمز عبور">
             <UInput class="w-full" v-model="state2.password" type="password" />
           </UFormField>
         </UForm>
       </div>
     </template>
     <template #footer>
-      <UButton @click="submit(modalId)" type="submit" block> {{ modalId === 1 ? 'ثبت درخواست' : 'ثبت کاربر' }} </UButton>
-      </template>
+      <UButton @click="submit(modalId)" type="submit" block>
+        {{ modalId === 1 ? "ثبت درخواست" : "ثبت کاربر" }}
+      </UButton>
+    </template>
   </UModal>
 </template>
 <script setup lang="ts">
@@ -200,6 +401,14 @@ const modalId = ref(1);
 const df = new DateFormatter("fa-IR", {
   dateStyle: "medium",
 });
+const pics = [
+  "https://picsum.photos/640/640?random=1",
+  "https://picsum.photos/640/640?random=2",
+  "https://picsum.photos/640/640?random=3",
+  "https://picsum.photos/640/640?random=4",
+  "https://picsum.photos/640/640?random=5",
+  "https://picsum.photos/640/640?random=6",
+];
 const modelValue = shallowRef(new CalendarDate(2025, 2, 20));
 const chartOptions = ref<ApexOptions>({
   chart: {
@@ -304,8 +513,21 @@ const series2 = ref([
   },
 ]);
 const items = ref(["جشن", "شعر", "بازی", "کرسی ازاد اندیشی", "کنفرانس"]);
-const items2 = ref(['کمیته ناظر انجمن', 'کمیته اجرایی انجمن', 'کمیته مالی انجمن' , 'مدیر فرهنگی' , 'مدیر اجرایی' , 'شورای فرهنگی']);
-const items3 = ref(['کارشناس فنی', 'کارشناس مالی', 'مدیر اجرایی', 'مدیر فرهنگی' , 'منشی']);
+const items2 = ref([
+  "کمیته ناظر انجمن",
+  "کمیته اجرایی انجمن",
+  "کمیته مالی انجمن",
+  "مدیر فرهنگی",
+  "مدیر اجرایی",
+  "شورای فرهنگی",
+]);
+const items3 = ref([
+  "کارشناس فنی",
+  "کارشناس مالی",
+  "مدیر اجرایی",
+  "مدیر فرهنگی",
+  "منشی",
+]);
 const state = ref({
   title: "",
   template: "",
@@ -320,19 +542,19 @@ function openModal(id: number) {
   open.value = true;
 }
 function submit(id: number) {
-    if (id === 1) {
-        toast.add({
-        title: "ثبت شد",
-        description: "درخواست شما با موفقیت ثبت شد",
-        color: "success",
-        });
-    } else {
-        toast.add({
-        title: "ثبت شد",
-        description: "کاربر جدید با موفقیت ثبت شد",
-        color: "success",
-        });
-    }
-    open.value = false;
+  if (id === 1) {
+    toast.add({
+      title: "ثبت شد",
+      description: "درخواست شما با موفقیت ثبت شد",
+      color: "success",
+    });
+  } else {
+    toast.add({
+      title: "ثبت شد",
+      description: "کاربر جدید با موفقیت ثبت شد",
+      color: "success",
+    });
+  }
+  open.value = false;
 }
 </script>

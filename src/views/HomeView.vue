@@ -53,7 +53,10 @@ async function onSubmit() {
   }
   else if(state.username == 'user' && state.password == 'user') {
     router.push('/user')
-  } else {
+  } else if (state.username == 'vip' && state.password == 'vip') {
+    router.push('/vip')
+  }
+  else {
     toast.add({
     title: "نامعتبر",
     description: "نام کاربری یا رمز عبور نادرست است",
