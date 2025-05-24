@@ -1,79 +1,113 @@
 <template>
-  <div class="mt-4 ml-4 flex gap-2">
-    <UDrawer direction="top">
-      <UChip size="2xl">
-        <UButton color="neutral" variant="subtle" trailing-icon="i-lucide-bell" />
-      </UChip>
-      
+  <div class="flex gap-2">
+    <div class="mt-4 ml-4 flex gap-2 items-center mb-4">
+      <div>
+        <UDrawer direction="top">
+        <UChip size="2xl">
+          <UButton
+            color="neutral"
+            variant="subtle"
+            trailing-icon="i-lucide-bell"
+          />
+        </UChip>
 
-      <template #content>
-        <div class="mx-4">
-          <div class="text-white text-end text-xl mt-8 m-4">اعلانات</div>
-          <div
-            class="flex justify-between p-2 rtl text-white border rounded-lg border-gray-700"
-          >
-            <div class="grid gap-2">
-              <div>جشن روز دانشجو</div>
-              <div class="flex gap-1 items-center">
-                <div class="text-sm text-gray-400">
-                تاریخ درخواست : ۱۴۰۳/۱۱/۲۰
+        <template #content>
+          <div class="mx-4">
+            <div class="text-white text-end text-xl mt-8 m-4">اعلانات</div>
+            <div
+              class="flex justify-between p-2 rtl text-white border rounded-lg border-gray-700"
+            >
+              <div class="grid gap-2">
+                <div>جشن روز دانشجو</div>
+                <div class="flex gap-1 items-center">
+                  <div class="text-sm text-gray-400">
+                    تاریخ درخواست : ۱۴۰۳/۱۱/۲۰
+                  </div>
+                </div>
               </div>
-              </div>
-            </div>
-            <div class="grid gap-2">
-              <div class="text-end">تاریخ : ۱۴۰۳/۱۲/۲۰</div>
-              <div class="flex gap-2">
-                <UBadge variant="soft" label="درخواست شما تایید شد"></UBadge>
+              <div class="grid gap-2">
+                <div class="text-end">تاریخ : ۱۴۰۳/۱۲/۲۰</div>
+                <div class="flex gap-2">
+                  <UBadge variant="soft" label="درخواست شما تایید شد"></UBadge>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </template>
-    </UDrawer>
-    <UDrawer direction="top">
-      <UButton color="neutral" label="راهنما" variant="subtle" trailing-icon="i-lucide-info" />
+        </template>
+      </UDrawer>
+      </div>
+      <div>
+        <UDrawer direction="top">
+        <UButton
+          color="neutral"
+          label="راهنما"
+          variant="subtle"
+          trailing-icon="i-lucide-info"
+        />
 
-      <template #content>
-        <div class="mx-4">
-          <div class="text-white text-end text-xl mt-8 m-4">راهنما</div>
-          <div
-            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
-          >
-            <div class="grid items-center">آیین نامه انجمن علمی</div>
-            <div>
-              <UButton color="neutral" variant="subtle" trailing-icon="i-lucide-link" />
+        <template #content>
+          <div class="mx-4">
+            <div class="text-white text-end text-xl mt-8 m-4">راهنما</div>
+            <div
+              class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+            >
+              <div class="grid items-center">آیین نامه انجمن علمی</div>
+              <div>
+                <UButton
+                  color="neutral"
+                  variant="subtle"
+                  trailing-icon="i-lucide-link"
+                />
+              </div>
+            </div>
+            <div
+              class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+            >
+              <div class="grid items-center">اساس نامه تشکل های دانشجویی</div>
+              <div>
+                <UButton
+                  color="neutral"
+                  variant="subtle"
+                  trailing-icon="i-lucide-link"
+                />
+              </div>
+            </div>
+            <div
+              class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+            >
+              <div class="grid items-center">اساسنامه کانون های جهادی</div>
+              <div>
+                <UButton
+                  color="neutral"
+                  variant="subtle"
+                  trailing-icon="i-lucide-link"
+                />
+              </div>
+            </div>
+            <div class="text-white text-end text-xl mt-8 m-4">
+              سوالات پر تکرار
+            </div>
+            <div
+              class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
+            >
+              <div class="grid items-center">
+                چگونه می توانم مجوز یک نشریه را بگیرم؟
+              </div>
+              <div>
+                <UButton
+                  color="neutral"
+                  variant="subtle"
+                  trailing-icon="i-lucide-link"
+                />
+              </div>
             </div>
           </div>
-          <div
-            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
-          >
-            <div class="grid items-center">اساس نامه تشکل های دانشجویی</div>
-            <div>
-              <UButton color="neutral" variant="subtle" trailing-icon="i-lucide-link" />
-            </div>
-          </div>
-          <div
-            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
-          >
-            <div class="grid items-center">اساسنامه کانون های جهادی</div>
-            <div>
-              <UButton color="neutral" variant="subtle" trailing-icon="i-lucide-link" />
-            </div>
-          </div>
-          <div class="text-white text-end text-xl mt-8 m-4">سوالات پر تکرار</div>
-          <div
-            class="flex justify-between my-2 p-2 rtl text-white border rounded-lg border-gray-700"
-          >
-            <div class="grid items-center">چگونه می توانم مجوز یک نشریه را بگیرم؟</div>
-            <div>
-              <UButton color="neutral" variant="subtle" trailing-icon="i-lucide-link" />
-            </div>
-          </div>
-        </div>
-      </template>
-    </UDrawer>
+        </template>
+      </UDrawer>
+      </div>
+    </div>
+    <USeparator class="my-8" label="داشبورد انجمن" />
   </div>
-  <USeparator class="my-8" label="داشبورد انجمن" />
   <div class="rtl m-4">
     <UCard>
       <template #default>
@@ -188,7 +222,7 @@
           </div>
           <div class="grid gap-2">
             <div class="text-end">مهندسی کامپیوتر</div>
-            <UButton >تایید درخواست</UButton>
+            <UButton>تایید درخواست</UButton>
           </div>
         </div>
       </template>
@@ -239,7 +273,12 @@
           >
             <div class="grid items-center">شنبه : ۱۱/۷</div>
             <div>
-              <UBadge variant="soft" size="lg" color="neutral" label="بدون برنامه"></UBadge>
+              <UBadge
+                variant="soft"
+                size="lg"
+                color="neutral"
+                label="بدون برنامه"
+              ></UBadge>
             </div>
           </div>
           <div
@@ -247,7 +286,7 @@
           >
             <div class="grid items-center">یک شنبه : ۱۱/۸</div>
             <div>
-              <UBadge  size="lg" label="شعر خوانی"></UBadge>
+              <UBadge size="lg" label="شعر خوانی"></UBadge>
             </div>
           </div>
           <div
@@ -255,7 +294,12 @@
           >
             <div class="grid items-center">دو شنبه : ۱۱/۹</div>
             <div>
-              <UBadge variant="soft" size="lg" color="neutral" label="بدون برنامه"></UBadge>
+              <UBadge
+                variant="soft"
+                size="lg"
+                color="neutral"
+                label="بدون برنامه"
+              ></UBadge>
             </div>
           </div>
           <div
@@ -263,7 +307,12 @@
           >
             <div class="grid items-center">سه شنبه : ۱۱/۱۰</div>
             <div>
-              <UBadge variant="soft" size="lg" color="neutral" label="بدون برنامه"></UBadge>
+              <UBadge
+                variant="soft"
+                size="lg"
+                color="neutral"
+                label="بدون برنامه"
+              ></UBadge>
             </div>
           </div>
           <div
@@ -271,7 +320,12 @@
           >
             <div class="grid items-center">چهار شنبه : ۱۱/۱۱</div>
             <div>
-              <UBadge variant="soft" size="lg" color="neutral" label="بدون برنامه"></UBadge>
+              <UBadge
+                variant="soft"
+                size="lg"
+                color="neutral"
+                label="بدون برنامه"
+              ></UBadge>
             </div>
           </div>
           <div
@@ -279,7 +333,12 @@
           >
             <div class="grid items-center">پنج شنبه : ۱۱/۱۲</div>
             <div>
-              <UBadge variant="soft" size="lg" color="neutral" label="بدون برنامه"></UBadge>
+              <UBadge
+                variant="soft"
+                size="lg"
+                color="neutral"
+                label="بدون برنامه"
+              ></UBadge>
             </div>
           </div>
           <div
@@ -287,7 +346,12 @@
           >
             <div class="grid items-center">جمعه : ۱۱/۱۳</div>
             <div>
-              <UBadge variant="soft" size="lg" color="neutral" label="بدون برنامه"></UBadge>
+              <UBadge
+                variant="soft"
+                size="lg"
+                color="neutral"
+                label="بدون برنامه"
+              ></UBadge>
             </div>
           </div>
         </div>
@@ -388,7 +452,7 @@
   </UModal>
 </template>
 <script setup lang="ts">
-import { ref, shallowRef } from "vue";
+import { computed, ref, shallowRef } from "vue";
 import VueApexCharts from "vue3-apexcharts";
 import type { ApexOptions } from "apexcharts";
 import {
