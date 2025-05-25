@@ -2,7 +2,7 @@
 
 
   <div class="flex rtl">
-    <div class="border-l p-4 border-[var(--ui-border)]">
+    <div class="border-l p-4 border-[var(--ui-border)] min-h-screen">
       <UNavigationMenu orientation="vertical" :items="nav" class="data-[orientation=vertical]:w-64 rtl mt-12" />
     </div>
 
@@ -246,7 +246,10 @@
         <TheProcesses />
       </div>
       <div v-if="selected == 'elections'">
-
+        <TheElections />
+      </div>
+      <div v-if="selected == 'surveys'">
+        <TheSurveys />
       </div>
     </div>
   </div>
